@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Calcular Média{% endblock %}
+{% block content %}
+<div class="flex flex-col md:flex-row items-center gap-8">
+  <form method="POST" class="space-y-4 flex-1">
+    <h2 class="text-xl font-semibold mb-4">Calcular Média</h2>
+    <input type="number" step="0.01" name="nota1" placeholder="Nota 1" class="w-full px-4 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600">
+    <input type="number" step="0.01" name="nota2" placeholder="Nota 2" class="w-full px-4 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600">
+    <input type="number" step="0.01" name="nota3" placeholder="Nota 3" class="w-full px-4 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600">
+    <button type="submit" class="px-5 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300 hover:scale-105">
+      Calcular
+    </button>
+
+    {% if media is not none %}
+    <div class="mt-6 p-4 rounded-lg font-semibold {{ 'bg-green-100 text-green-800' if situacao == 'Aprovado' else 'bg-red-100 text-red-800' }} dark:bg-opacity-10">
+      Média: {{ media|round(2) }} - {{ situacao }}
+    </div>
+    {% endif %}
+  </form>
+
+  <img src="https://media.canva.com/v2/files/uri:ifs%3A%2F%2FM%2Fd9a65b01-1291-4829-a252-b12ff9a8f4a7?csig=AAAAAAAAAAAAAAAAAAAAAB5G3xRgkvlG2y_qY7sV89Ewi39hEEBzO-d2rcnyiBSJ&exp=1743907767&signer=media-rpc&token=AAIAAU0AJGQ5YTY1YjAxLTEyOTEtNDgyOS1hMjUyLWIxMmZmOWE4ZjRhNwAAAAABlgkAwtgXOyJjVZaTpi9jdzG54PNDQ5aT75KY6dWBCnYUSpHHEg"
+       alt="Aluno estudando" class="w-full max-w-sm rounded-md shadow-md">
+</div>
+{% endblock %}

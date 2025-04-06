@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Início{% endblock %}
+{% block content %}
+<div class="flex flex-col md:flex-row gap-8 items-center">
+  <div>
+    <h2 class="text-2xl font-bold mb-4">Bem-vindo ao Sistema Escolar</h2>
+    <p class="text-gray-600 dark:text-gray-300 mb-4">Gerencie alunos, calcule médias e muito mais com facilidade e praticidade.</p>
+    <a href="{{ url_for('cadastro') }}" class="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300 hover:scale-105 inline-block">
+      Começar agora
+    </a>
+  </div>
+  <img src="https://assets.change.org/photos/2/vk/iz/hDvkIzmXXXPsEJm-800x450-noPad.jpg?1510183191"
+       alt="Ilustração de escola" class="w-full max-w-md rounded-lg shadow-md">
+</div>
+{% endblock %}
+

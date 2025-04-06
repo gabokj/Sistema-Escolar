@@ -1,0 +1,186 @@
+/* RESET / BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f2f4f8;
+    color: #333;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  
+  /* CONTAINER */
+  main {
+    max-width: 960px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* HEADER */
+  header {
+    background: #1e272e;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  header h1 {
+    margin-bottom: 10px;
+    font-size: 28px;
+  }
+  
+  nav a {
+    color: #dcdde1;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: #00cec9;
+  }
+  
+  /* TITULOS */
+  h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #2c3e50;
+  }
+  
+  /* FORMULÁRIOS */
+  .form-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  button {
+    padding: 12px;
+    border: 1px solid #ced6e0;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border 0.3s ease;
+  }
+  
+  input:focus {
+    border-color: #0984e3;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(9, 132, 227, 0.2);
+  }
+  
+  button {
+    background: #0984e3;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  button:hover {
+    background: #74b9ff;
+    transform: translateY(-1px);
+  }
+  
+  /* MENSAGEM DE RESULTADO */
+  .resultado {
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .aprovado {
+    background-color: #dff9fb;
+    color: #27ae60;
+    border-left: 6px solid #2ecc71;
+  }
+  
+  .reprovado {
+    background-color: #fceae8;
+    color: #c0392b;
+    border-left: 6px solid #e74c3c;
+  }
+  
+  /* TABELAS */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+  }
+  
+  th, td {
+    padding: 14px 10px;
+    border: 1px solid #ecf0f1;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #f6f8fa;
+    font-weight: 600;
+    color: #2d3436;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tr:hover {
+    background-color: #eaf2f8;
+  }
+  
+  /* RESPONSIVO */
+  @media (max-width: 768px) {
+    body {
+      font-size: 15px;
+    }
+  
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    nav a {
+      margin: 5px 10px;
+    }
+  
+    main {
+      margin: 20px;
+      padding: 15px;
+    }
+  
+    .form-box input, .form-box button {
+      font-size: 15px;
+    }
+  }
+  
+  /* ANIMAÇÕES SUAVES */
+  .fade-in {
+    animation: fade 0.5s ease-in-out;
+  }
+  
+  @keyframes fade {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

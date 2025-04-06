@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Lista de Alunos{% endblock %}
+{% block content %}
+<h2 class="text-xl font-semibold mb-6 flex items-center gap-2">
+  <i data-lucide="list" class="w-5 h-5 text-blue-600"></i> Lista de Alunos
+</h2>
+
+{% if alunos %}
+<table class="w-full table-auto border-collapse shadow-sm">
+  <thead class="bg-gray-100 dark:bg-gray-700">
+    <tr>
+      <th class="p-3 text-left">Nome</th>
+      <th class="p-3 text-left">Classe</th>
+      <th class="p-3 text-left">Média</th>
+      <th class="p-3 text-left">Situação</th>
+      <th class="p-3 text-left">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for aluno in alunos %}
+    <tr class="hover:bg-gray-50 dark:hover:bg-gray-800">
+      <td class="p-3">{{ aluno.nome }}</td>
+      <td class="p-3">{{ aluno.classe }}</td>
+      <td class="p-3">{{ aluno.media }}</td>
+      <td class="p-3 font-semibold {{ 'text-green-600' if aluno.situacao == 'Aprovado' else 'text-red-600' }}">{{ aluno.situacao }}</td>
+      <td class="p-3">
+        <form action="{{ url_for('deletar', index=loop.index0) }}" method="POST" onsubmit="return confirm('Deseja realmente deletar este aluno?');">
+          <button type="submit" class="text-red-500 hover:text-red-700 font-semibold flex items-center gap-1">
+            <i data-lucide="trash" class="w-4 h-4"></i> Deletar
+          </button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p class="text-gray-600 dark:text-gray-300">Nenhum aluno cadastrado ainda.</p>
+{% endif %}
+{% endblock %}
+

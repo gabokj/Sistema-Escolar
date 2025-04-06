@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Sistema Escolar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-screen bg-gray-900 relative font-sans">
+
+  <!-- 🔄 Fundo animado -->
+  <div class="absolute inset-0 bg-cover bg-center blur-sm brightness-50"
+       style="background-image: url('https://img.freepik.com/fotos-gratis/bolas-acrilicas-azuis-sobre-fundo-preto-com-espaco-de-copia_23-2148469326.jpg?w=740'); animation: pulse 15s infinite;">
+  </div>
+
+  <!-- 🧾 Card de Login -->
+  <div class="relative z-10 flex items-center justify-center h-full px-4">
+    <form method="POST"
+          class="bg-white/90 dark:bg-gray-800/90 text-gray-900 dark:text-white p-8 rounded-xl shadow-2xl w-full max-w-sm space-y-6 backdrop-blur-md">
+      
+      <!-- 🔰 Logo animada -->
+      <div class="text-center">
+        <img src="http://saaerj.org.br/site/wp-content/uploads/2016/11/Logo_Salesiano-300x230.png"
+             alt="Logo"
+             class="w-20 mx-auto mb-4 animate-bounce" />
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white drop-shadow">Sistema Escolar</h2>
+        <p class="text-sm text-gray-600 dark:text-gray-300">Acesso restrito</p>
+      </div>
+
+      <!-- ⚠️ Mensagem de erro -->
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class="bg-red-100 text-red-800 px-3 py-2 rounded-md text-sm text-center">
+            {{ messages[0] }}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      <!-- 📩 Usuário -->
+      <input type="text" name="usuario" placeholder="Usuário" required
+             class="w-full px-4 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400">
+
+      <!-- 🔒 Senha com botão para visualizar -->
+      <div class="relative">
+        <input type="password" name="senha" id="senha" placeholder="Senha" required
+               class="w-full px-4 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400 pr-10">
+               <button type="button" onclick="toggleSenha()"
+               class="absolute inset-y-0 right-2 flex items-center text-gray-500 hover:text-gray-700 dark:hover:text-white text-xl">
+         <img src="https://cdn-icons-png.flaticon.com/128/5704/5704746.png" 
+              alt="Visualizar senha"
+              class="w-5 h-5" />
+       </button>
+       
+          
+        </button>
+      </div>
+
+      <!-- 🔓 Botão de login -->
+      <button type="submit"
+              class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-md transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+        Entrar
+      </button>
+
+      <p class="text-xs text-center text-gray-500 dark:text-gray-400 mt-4">Sistema Escolar © 2025</p>
+    </form>
+  </div>
+
+  <!-- 🔁 Estilo de animação para o fundo -->
+  <style>
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
+  </style>
+
+  <!-- 👁️ Função de mostrar/ocultar senha -->
+  <script>
+    function toggleSenha() {
+      const senha = document.getElementById('senha');
+      senha.type = senha.type === 'password' ? 'text' : 'password';
+    }
+  </script>
+
+</body>
+</html>
+
+
+

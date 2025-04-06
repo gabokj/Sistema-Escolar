@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{% block title %}Sistema Escolar{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <a href="{{ url_for('logout') }}" class="text-sm hover:underline">Sair</a>
+
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans transition-colors duration-300 dark:bg-gray-900 dark:text-white">
+  <header class="bg-blue-800 text-white py-6 shadow-md dark:bg-blue-900">
+    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-3xl font-bold">Sistema Escolar</h1>
+      <button id="modo-btn" class="bg-white text-blue-800 px-3 py-1 rounded hover:bg-gray-100 transition dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700">
+        🌙 Modo Escuro
+      </button>
+    </div>
+    <nav class="mt-4 flex flex-wrap gap-6 text-white px-4">
+      <a href="{{ url_for('index') }}" class="flex items-center gap-2 group hover:text-yellow-300 transition">
+        <i data-lucide="home" class="w-5 h-5 group-hover:scale-110 transition-transform"></i> Início
+      </a>
+      <a href="{{ url_for('calcular') }}" class="flex items-center gap-2 group hover:text-yellow-300 transition">
+        <i data-lucide="calculator" class="w-5 h-5 group-hover:rotate-6 transition-transform"></i> Calcular
+      </a>
+      <a href="{{ url_for('cadastro') }}" class="flex items-center gap-2 group hover:text-yellow-300 transition">
+        <i data-lucide="user-plus" class="w-5 h-5 group-hover:-translate-y-1 transition-transform"></i> Cadastrar
+      </a>
+      <a href="{{ url_for('lista') }}" class="flex items-center gap-2 group hover:text-yellow-300 transition">
+        <i data-lucide="list" class="w-5 h-5 group-hover:scale-110 transition-transform"></i> Listar
+      </a>
+    </nav>
+  </header>
+
+  <main class="max-w-4xl mx-auto bg-white mt-8 p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white">
+    {% block content %}{% endblock %}
+  </main>
+
+  <script>
+    // Toggle Dark Mode
+    const btn = document.getElementById("modo-btn");
+    const html = document.documentElement;
+    const darkMode = localStorage.getItem("dark-mode");
+
+    if (darkMode === "true") html.classList.add("dark");
+
+    btn.addEventListener("click", () => {
+      html.classList.toggle("dark");
+      localStorage.setItem("dark-mode", html.classList.contains("dark"));
+    });
+
+    lucide.createIcons();
+  </script>
+</body>
+</html>
+
+
